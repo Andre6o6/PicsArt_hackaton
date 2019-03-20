@@ -77,7 +77,7 @@ class DecoderBlock(torch.nn.Module):
         self.up = nn.ConvTranspose2d(in_channels, out_channels, kernel_size=2, stride=2)
         
         if mode == 'cat':
-            inner_channels = in_channels
+            inner_channels = 2*out_channels
         else:
             inner_channels = out_channels
             
