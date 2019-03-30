@@ -4,7 +4,7 @@ import torch.nn.functional as F
 from torchvision.models import resnet34, resnet50
 
 class UNetResnet(torch.nn.Module):
-    def __init__(self, num_classes=1, encoder='resnet34', mode='sum'):
+    def __init__(self, num_classes=1, encoder='resnet34', mode='sum', first_skip=False):
         super().__init__()
         
         if encoder=='resnet34':
@@ -33,7 +33,11 @@ class UNetResnet(torch.nn.Module):
         x = self.encoder.conv1(x)
         x = self.encoder.bn1(x)
         x = self.encoder.relu(x)
-        blocks.append(x)
+        if first_skip:
+            blocks.append(x)
+        else:
+            blocks.append(None)
+            
         x = self.encoder.maxpool(x)
         
         x = self.encoder.layer1(x)
@@ -97,16 +101,19 @@ class DecoderBlock(torch.nn.Module):
         diff_x = (layer_width - target_size[1]) // 2
         return layer[:, :, diff_y:(diff_y + target_size[0]), diff_x:(diff_x + target_size[1])]
         
-    def forward(self, x, bridge):
+    def forward(self, x, bridge=None):
         out = self.up(x)
-        out = self.center_crop(out, bridge.shape[2:])
+        
+        if bridge is not None:
+            out = self.center_crop(out, bridge.shape[2:])
         
         shortcut = out
         
-        if self.mode == 'cat':
-            out = torch.cat((out, bridge), 1)
-        else:
-            out = out + bridge
+        if bridge is not None:
+            if self.mode == 'cat':
+                out = torch.cat((out, bridge), 1)
+            else:
+                out = out + bridge
             
         out = self.block(out)
         
