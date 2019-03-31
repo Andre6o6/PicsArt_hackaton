@@ -109,13 +109,14 @@ class DecoderBlock(torch.nn.Module):
         
         shortcut = out
         
-        if bridge is not None:
-            if self.mode == 'cat':
-                out = torch.cat((out, bridge), 1)
-            else:
-                out = out + bridge
+        if bridge is not None and self.mode == 'cat':   #concatenation should be here
+            out = torch.cat((out, bridge), 1)          
             
         out = self.block(out)
         
         out = out + shortcut
+        
+        if bridge is not None and self.mode == 'sum':   #...but addition here
+            out = out + bridge
+           
         return out
