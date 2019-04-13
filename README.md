@@ -1,5 +1,6 @@
-[![DOI](https://zenodo.org/badge/159523300.svg)](https://zenodo.org/badge/latestdoi/159523300)
 # Код решения задачи с PicsArt AI Hackaton
+[![DOI](https://zenodo.org/badge/159523300.svg)](https://zenodo.org/badge/latestdoi/159523300)
+
 Этот репозиторий содержит код нейронной сети, которая использовалась в решении задачи с конкурса [PicsArt AI Hackaton Online](https://github.com/datasouls/picsart-online).
 Код написан на PyTorch.
 
