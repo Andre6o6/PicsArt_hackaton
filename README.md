@@ -1,10 +1,9 @@
 [![DOI](https://zenodo.org/badge/159523300.svg)](https://zenodo.org/badge/latestdoi/159523300)
-# Код решения задачи с PicsArt AI Hackaton
+# Нейронная сеть для семантической сегментации фотографий
+
+Этот репозиторий содержит код нейронной сети для отделения человека на фотографии от фона, которая использовалась в решении задачи с конкурса [PicsArt AI Hackaton Online](https://github.com/datasouls/picsart-online). Подробно эта сеть описана в моей статье ["Применение сверточных нейронных сетей в задаче семантической сегментации фотографий"](www.apmath.spbu.ru/ru/research/conference/pm/archive/2019/cps2019.pdf#page=374).
 
 ![masks](https://raw.githubusercontent.com/datasouls/picsart-online/master/data/example_images.png)
-
-
-Этот репозиторий содержит код нейронной сети для отделения человека на фотографии от фона, которая использовалась в решении задачи с конкурса [PicsArt AI Hackaton Online](https://github.com/datasouls/picsart-online).
 
 ## Запуск кода
 Код решения оформлен в виде Jupyter Notebook-ов.
