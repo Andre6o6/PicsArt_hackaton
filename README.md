@@ -1,8 +1,10 @@
-# Код решения задачи с PicsArt AI Hackaton
 [![DOI](https://zenodo.org/badge/159523300.svg)](https://zenodo.org/badge/latestdoi/159523300)
+# Код решения задачи с PicsArt AI Hackaton
 
-Этот репозиторий содержит код нейронной сети, которая использовалась в решении задачи с конкурса [PicsArt AI Hackaton Online](https://github.com/datasouls/picsart-online).
-Код написан на PyTorch.
+![masks](https://raw.githubusercontent.com/datasouls/picsart-online/master/data/example_images.png)
+
+
+Этот репозиторий содержит код нейронной сети для отделения человека на фотографии от фона, которая использовалась в решении задачи с конкурса [PicsArt AI Hackaton Online](https://github.com/datasouls/picsart-online).
 
 ## Запуск кода
 Код решения оформлен в виде Jupyter Notebook-ов.
